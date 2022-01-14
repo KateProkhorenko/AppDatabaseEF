@@ -1,0 +1,38 @@
+﻿<Window x:Class="AppDB.Views.ViewPC"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppDB.Views"
+        mc:Ignorable="d"
+        Title="Таблица PC" Height="400" Width="400"
+        Name="AddNewPcWnd">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="200">
+            <TextBlock Text="code"/>
+            <TextBox Name="codeBlock" Text="{Binding PcCode}"/>
+            <TextBlock Text="model"/>
+            <TextBox Name="modelBlock" Text="{Binding PcModel}"/>
+            <TextBlock Text="speed"/>
+            <TextBox Name="speedBlock" Text="{Binding PcSpeed}"/>
+            <TextBlock Text="ram"/>
+            <TextBox Name="ramBlock" Text="{Binding PcRam}"/>
+            <TextBlock Text="hd"/>
+            <TextBox Name="hdBlock" Text="{Binding PcHd}"/>
+            <TextBlock Text="cd"/>
+            <TextBox Name="cdBlock" Text="{Binding PcCd}"/>
+            <TextBlock Text="price"/>
+            <TextBox Name="priceBlock" PreviewTextInput ="PreviewTextInput" Text="{Binding PcPrice}"/>
+        </StackPanel>
+        <Button Content="Добавить в таблицу PC" 
+                Command="{Binding AddNewPc}"
+                CommandParameter="{Binding ElementName=AddNewPcWnd}" Margin="130,10,100,15" RenderTransformOrigin="0.475,-1.516" Grid.Row="1"/>
+    </Grid>
+</Window>

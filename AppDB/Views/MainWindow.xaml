@@ -1,0 +1,145 @@
+﻿<mah:MetroWindow x:Class="AppDB.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:AppDB.Views"
+        mc:Ignorable="d"
+        Title="ConnectionApp" Height="450" Width="800"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40"/>
+        </Grid.RowDefinitions>
+        <TabControl Grid.Row="0" SelectedItem="{Binding SelectedTabItem}">
+            <TabItem Name="PcTab">
+                <TabItem.Header>
+                    <TextBlock Text="Pcs"/>
+                </TabItem.Header>
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Редактировать" Command="{Binding OpenEditItemWnd}"/>
+                        <MenuItem Header="Удалить" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
+                <ListView x:Name="ViewAllPcs" ItemsSource="{Binding AllPcs}"
+                          SelectedItem="{Binding SelectedPc}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Code"                                            
+                                            DisplayMemberBinding="{Binding Path=Code}"/>
+                            <GridViewColumn Header="Model"
+                                            DisplayMemberBinding="{Binding Path=Model}"/>
+                            <GridViewColumn Header="Speed"
+                                            DisplayMemberBinding="{Binding Path=Speed}"/>
+                            <GridViewColumn Header="Ram"
+                                            DisplayMemberBinding="{Binding Path=Ram}"/>
+                            <GridViewColumn Header="Hd"
+                                            DisplayMemberBinding="{Binding Path=Hd}"/>
+                            <GridViewColumn Header="Cd"
+                                            DisplayMemberBinding="{Binding Path=Cd}"/>
+                            <GridViewColumn Header="Price"
+                                            DisplayMemberBinding="{Binding Path=Price}"/>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Name="LaptopsTab">
+                <TabItem.Header>
+                    <TextBlock Text="Laptops"/>
+                </TabItem.Header>
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Редактировать" Command="{Binding OpenEditItemWnd}"/>
+                        <MenuItem Header="Удалить" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
+                <ListView x:Name="ViewAllLaptops" ItemsSource="{Binding AllLaptops}"
+                          SelectedItem="{Binding SelectedLaptop}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Code"
+                                            DisplayMemberBinding="{Binding Path=Code}"/>
+                            <GridViewColumn Header="Model"
+                                            DisplayMemberBinding="{Binding Path=Model}"/>
+                            <GridViewColumn Header="Speed"
+                                            DisplayMemberBinding="{Binding Path=Speed}"/>
+                            <GridViewColumn Header="Ram"
+                                            DisplayMemberBinding="{Binding Path=Ram}"/>
+                            <GridViewColumn Header="Hd"
+                                            DisplayMemberBinding="{Binding Path=Hd}"/>
+                            <GridViewColumn Header="Price" 
+                                            DisplayMemberBinding="{Binding Path=Price}"/>
+                            <GridViewColumn Header="Screen" 
+                                            DisplayMemberBinding="{Binding Path=Screen}"/>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>
+            <TabItem Name="PrintersTab">
+                <TabItem.Header>
+                    <TextBlock Text="Printers"/>
+                </TabItem.Header>
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Редактировать" Command="{Binding OpenEditItemWnd}"/>
+                        <MenuItem Header="Удалить" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
+                <ListView x:Name="ViewAllPrinters" ItemsSource="{Binding AllPrinters}"
+                          SelectedItem="{Binding SelectedPrinter}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Code" 
+                                            DisplayMemberBinding="{Binding Path=Code}"/>
+                            <GridViewColumn Header="Model" 
+                                            DisplayMemberBinding="{Binding Path=Model}"/>
+                            <GridViewColumn Header="Color" 
+                                            DisplayMemberBinding="{Binding Path=Color}"/>
+                            <GridViewColumn Header="Type" 
+                                            DisplayMemberBinding="{Binding Path=Type}"/>
+                            <GridViewColumn Header="Price" 
+                                            DisplayMemberBinding="{Binding Path=Price}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>                                
+            </TabItem>           
+            <TabItem Name="ProductsTab">
+                <TabItem.Header>
+                    <TextBlock Text="Products"/>
+                </TabItem.Header>
+                <TabItem.ContextMenu>
+                    <ContextMenu>
+                        <MenuItem Header="Редактировать" Command="{Binding OpenEditItemWnd}"/>
+                        <MenuItem Header="Удалить" Command="{Binding DeleteItem}"/>
+                    </ContextMenu>
+                </TabItem.ContextMenu>
+                <ListView x:Name="ViewAllProducts" ItemsSource="{Binding AllProducts}"
+                          SelectedItem="{Binding SelectedProduct}">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Maker" 
+                                            DisplayMemberBinding="{Binding Path=Maker}"/>
+                            <GridViewColumn Header="Model" 
+                                            DisplayMemberBinding="{Binding Path=Model}"/>
+                            <GridViewColumn Header="Type" 
+                                            DisplayMemberBinding="{Binding Path=Type}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+            </TabItem>            
+        </TabControl>
+        <StackPanel Grid.Row="1" Orientation="Horizontal"
+                    HorizontalAlignment="Right">
+            <Button Content="  Новый PC  " Command="{Binding OpenViewPCWnd}"/>
+            <Button Content="  Новый Laptop  " Command="{Binding OpenViewLaptopWnd}"/>
+            <Button Content="  Новый Printer  " Command="{Binding OpenViewPrinterWnd}"/>
+            <Button Content="  Новый Product  " Command="{Binding OpenViewProductWnd}"/>
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

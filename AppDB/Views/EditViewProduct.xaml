@@ -1,0 +1,31 @@
+﻿<Window x:Class="AppDB.Views.EditViewProduct"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppDB.Views"
+        mc:Ignorable="d"
+        Title="EditViewProduct" Height="400" Width="400"
+        Name="EditProductWnd">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="200">
+            <TextBlock Text="newmaker"/>
+            <TextBox Text="{Binding ProductMaker}"/>
+            <TextBlock Text="newmodel"/>
+            <TextBox Text="{Binding ProductModel}"/>
+            <TextBlock Text="newtype"/>
+            <TextBox  Text="{Binding ProductType}"/>
+
+        </StackPanel>
+        <Button Content="Редактировать Product" 
+                Command="{Binding EditProduct}"
+                CommandParameter="{Binding ElementName=EditProductWnd}" Margin="116,15,116,10" FontSize="10" Grid.Row="1"/>
+    </Grid>
+</Window>

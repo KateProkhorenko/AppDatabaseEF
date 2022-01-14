@@ -1,0 +1,38 @@
+﻿<Window x:Class="AppDB.Views.ViewLaptop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AppDB.Views"
+        mc:Ignorable="d"
+         Title="Таблица Laptop" Height="400" Width="400"
+        Name="AddNewLaptopWnd">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Vertical"
+                    HorizontalAlignment="Center"
+                    VerticalAlignment="Center"
+                    Width="200">
+            <TextBlock Text="code"/>
+            <TextBox Name="codeBlock" Text="{Binding LaptopCode}"/>
+            <TextBlock Text="model"/>
+            <TextBox Name="modelBlock" Text="{Binding LaptopModel}"/>
+            <TextBlock Text="speed"/>
+            <TextBox Name="speedBlock" Text="{Binding LaptopSpeed}"/>
+            <TextBlock Text="ram"/>
+            <TextBox Name="ramBlock" Text="{Binding LaptopRam}"/>
+            <TextBlock Text="hd"/>
+            <TextBox Name="hdBlock"  Text="{Binding LaptopHd}"/>
+            <TextBlock Text="price"/>
+            <TextBox Name="priceBlock" PreviewTextInput ="PreviewTextInput" Text="{Binding LaptopPrice}"/>
+            <TextBlock Text="screen"/>
+            <TextBox Name="screenBlock" Text="{Binding LaptopScreen}"/>
+        </StackPanel>
+        <Button Content="Добавить в таблицу Laptop" 
+                Command="{Binding AddNewLaptop}"
+                CommandParameter="{Binding ElementName=AddNewLaptopWnd}" Margin="116,8,116,17" FontSize="10" Grid.Row="1"/>
+    </Grid>
+</Window>
